@@ -1,12 +1,828 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title></title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+<meta http-equiv="Access-Control-Allow-Methods" content="POST" />
+<meta http-equiv="Access-Control-Allow-Headers" content="x-requested-with,content-type" />
+<title>智慧物业 BI大数据可视化中心</title>
+<link rel="stylesheet" href="bi/css/bi_fontface.css">
+<link rel="stylesheet" href="bi/css/public.css">
+<link rel="stylesheet" href="bi/css/property2.css">
+<link rel="stylesheet" href="bi/js/odometer/themes/odometer-theme-default.css">
+<style type="text/css">
+.anchorBL { display: none; }
+</style>
+<script src="public/js/jquery-1.8.3.min.js"></script>
+<script src="bi/js/echarts/echarts.min.js"></script><!-- 百度报表 -->
 </head>
-<body>
-<button type="button" id="the-button">Try it</button>
+<body class="bgparking">
+<!--top-->
+<div class="topdp">
+  <div class="topd">
+    <div class="lcond">
+      <div class="logod"><img src="bi/images/logo.png" height="30"></div>
+      <div class="swind">
+        <h3><a><i>切换版块</i></a></h3>
+        <div class="snvad">
+          <p><a href="index.html">智慧物业</a></p>
+          <p><a href="zhtc.html">智慧停车</a></p>
+        </div>
+      </div>
+      <div class="dated">1月18日&nbsp;周五&nbsp;11:42<span style="display:none;"> --------- h=<span id="h"></span> ch=<span id="ch"></span> v=<span id="v"></span></span></div>
+    </div>
+    <!--./lcond-->
+    <div class="titbg"></div>
+    <div class="titd">智慧物业 BI大数据可视化中心</div>
+    <div class="titbt"></div>
+    <div class="rcond">
+      <div class="linkd"><a href="/">物联网管理平台</a></div>
+      <div class="btnd">
+        <p class="p1"><a href="javascript:;" onClick="effectMcond();"></a></p>
+        <p class="p2" id="jp_container"><a class="jp-play" title="打开背景音乐"></a><a class="jp-stop" title="关闭背景音乐"></a></p>
+        <p class="p3"><a onClick="fullScreen();" title="点击全屏" ></a></p>
+      </div>
+      <div id="jquery_jplayer" style="display:none;"></div>
+    </div>
+    <!--./rcond--> 
+  </div>
+</div>
+<div class="maintop"></div>
+<div class="mainb"></div>
+<!--./top--> 
+
+<!--content-->
+<div class="mainconpd"> 
+  <!--mainlrcond-->
+  <div class="mainlrcond"> 
+    <!--mcond_nws-->
+    <div class="mcond mcond_nws">
+      <p class="cortr"></p>
+      <p class="corbl"></p>
+      <div class="mcontitd">
+        <div class="titd poic1">联线状态</div>
+      </div>
+      <!--./mcontitd-->
+      <div class="mcond_nwsuld">
+        <div class="mcond_nwslid">
+          <div class="titd">项目在线</div>
+          <div class="chartsd" id="network_stateID1"></div>
+          <div class="numd" id="network_numID1">20 / 25</div>
+          <div class="tagd">在线 / 总数</div>
+        </div>
+        <!--./li-->
+        <div class="mcond_nwslid">
+          <div class="titd">门禁设备</div>
+          <div class="chartsd" id="network_stateID2"></div>
+          <div class="numd" id="network_numID2">20 / 25</div>
+          <div class="tagd">在线 / 总数</div>
+        </div>
+        <!--./li-->
+        <div class="mcond_nwslid">
+          <div class="titd">停车设备</div>
+          <div class="chartsd" id="network_stateID3"></div>
+          <div class="numd" id="network_numID3">20 / 25</div>
+          <div class="tagd">在线 / 总数</div>
+        </div>
+        <div class="mcond_nwslid">
+          <div class="titd">停车通道</div>
+          <div class="chartsd" id="network_stateID4"></div>
+          <div class="numd" id="network_numID3">20 / 25</div>
+          <div class="tagd">在线 / 总数</div>
+        </div>
+        <!--./li--> 
+      </div>
+      <!--./mcond_nwsuld--> 
+    </div>
+    <div class="mainb"></div>
+    <!--./mcond_nws-->
+    
+    <div class="mcond mcond_odt">
+      <p class="cortr"></p>
+      <p class="corbl"></p>
+      <div class="mcontitd pb0">
+        <div class="titd poic2">开门分析统计</div>
+        <div class="linkd">
+          <div class="ldd">
+            <p class="on"><a href="javascript:;" onClick="switchOpenDoor(1);">今日</a></p>
+            <p><a href="javascript:;" onClick="switchOpenDoor(2);">本月</a></p>
+          </div>
+          <div class="mored" style="display:none"><a href="javascript:;" title="更多详情">···</a></div>
+        </div>
+      </div>
+      <!--./mcontitd-->
+      <div class="mcond_odtrepd" id="opendoor_pieID">
+        <p class="mainloadd">loading...</p>
+      </div>
+      <!--./mcond_odtrepd--> 
+    </div>
+    <div class="mainb"></div>
+    <!--./mcond_odt-->
+    
+    <div class="mcond mcond_odn">
+      <p class="cortr"></p>
+      <p class="corbl"></p>
+      <div class="mcontitd">
+        <div class="titd poic2">门禁人流量 Top5</div>
+      </div>
+      <!--./mcontitd-->
+      <div class="mcond_odnrepd" id="opendoor_barID">
+        <p class="mainloadd">loading...</p>
+      </div>
+      <!--./mcond_odnrepd--> 
+    </div>
+    <div class="mainb"></div>
+    <!--./mcond_odn-->
+    
+    <div class="mcond mcond_jobw">
+      <p class="cortr"></p>
+      <p class="corbl"></p>
+      <div class="mcontitd">
+        <div class="titd poic4">工单服务分析</div>
+        <div class="linkd">
+          <div class="ldd">
+            <p class="on"><a href="javascript:;" onClick="switchJobw(1);">今日</a></p>
+            <p><a href="javascript:;" onClick="switchJobw(2);">本月</a></p>
+          </div>
+          <div class="mored" style="display:none"><a href="javascript:;" title="更多详情">···</a></div>
+        </div>
+      </div>
+      <!--./mcontitd-->
+      <div class="mcond_jobwpd">
+        <div class="mcond_jobwld">
+          <ul>
+            <li>
+              <h3>5620</h3>
+              <p>本月累计工单数</p>
+            </li>
+            <li>
+              <h3>341</h3>
+              <p>今日新增工单数</p>
+            </li>
+            <li>
+              <h3>90</h3>
+              <p>处理中工单数</p>
+            </li>
+          </ul>
+        </div>
+        <!--./mcond_jobwld-->
+        <div class="mcond_jobwrepd" id="jobw_pieID">
+          <p class="mainloadd">loading...</p>
+        </div>
+        <!--./mcond_jobwrepd--> 
+      </div>
+    </div>
+    <div class="mainb2"></div>
+    <!--./mcond_jobw--> 
+  </div>
+  <!--./mainlrcond--> 
+  
+  <!--mainmicond-->
+  <div class="mainmiconpd">
+    <div class="mainmicond"> 
+      
+      <!--mainmapd-->
+      <div class="mainmapd">
+        <div class="mainmtitd">
+          <p class="cortr"></p>
+          <p class="corbl"></p>
+          <div class="pnumlid n1">
+            <div class="numd odometer" id="odometer_base1">444</div>
+            <div class="titd"><i>项目数</i></div>
+            <p class="br1"></p>
+          </div>
+          <!-- ./li -->
+          <div class="pnumlid n2">
+            <div class="numd odometer" id="odometer_base2">555</div>
+            <div class="titd"><i>楼栋单元数</i></div>
+            <p class="br1"></p>
+          </div>
+          <!-- ./li -->
+          <div class="pnumlid n3">
+            <div class="numd odometer" id="odometer_base3">666</div>
+            <div class="titd"><i>服务户数</i></div>
+            <p class="br1"></p>
+          </div>
+          <!-- ./li -->
+          <div class="pnumlid n4">
+            <div class="numd odometer" id="odometer_base4">777</div>
+            <div class="titd"><i>管理面积</i></div>
+            <p class="br1"></p>
+          </div>
+          <!-- ./li -->
+          <div class="pnumlid n5">
+            <div class="numd odometer" id="odometer_base5">888</div>
+            <div class="titd"><i>住户数</i></div>
+            <p class="br1"></p>
+          </div>
+          <!-- ./li -->
+          <div class="pnumlid n6 nbr">
+            <div class="numd odometer" id="odometer_base6">999</div>
+            <div class="titd"><i>登记车辆</i></div>
+            <p class="br1"></p>
+          </div>
+        </div>
+        <div class="mnumd">
+          <h4>项目总数</h4>
+          <div class="numd odometer" id="odometer_map_num">25</div>
+        </div>
+        <!--./mnumd-->
+        <div class="mseld_ppd">
+          <div class="mseld_pd">
+            <div class="mseld p on" onClick="switchMap(1);"><em></em><i>项目</i></div>
+            <div class="mseld_puld">
+              <p class="pp" onClick="switchMap(1);">项目</p>
+              <p class="pg" onClick="switchMap(4);">车库</p>
+              <p class="pd" onClick="switchMap(5);">设备</p>
+            </div>
+          </div>
+        </div>
+        <!--./mseld_ppd-->
+        <div class="mseld m" onClick="switchMap(2);"><em></em><i>收入</i></div>
+        <div class="mseld c" onClick="switchMap(3);"><em></em><i>车流</i></div>
+        <!--./mseld-->
+        
+        <div class="bmapd" id="mapID">
+          <p class="mainloadd">loading...</p>
+        </div>
+        
+        <!--./bmapd--> 
+      </div>
+      <!--./mainmapd--> 
+      
+      <!--mcdpd-->
+      <div class="mcdpd">
+        <div class="mcdpd_l">
+          <div class="mcdd mcond_dopd">
+            <p class="cortr"></p>
+            <p class="corbl"></p>
+            <div class="mcontitd">
+              <div class="titd poic5">门禁实时动态</div>
+            </div>
+            <!--./mcontitd-->
+            <div class="mcond_dopduld">
+              <div class="mcond_dopdlid f">
+                <div class="d1">项目名称</div>
+                <div class="d2">开门方式</div>
+                <div class="d3">开门时间</div>
+              </div>
+              <!--./li-->
+              <div class="mcond_dopdlid">
+                <div class="d1">水湾1979住宅</div>
+                <div class="d2">人脸识别</div>
+                <div class="d3">12-05 15:57:00</div>
+              </div>
+              <!--./li-->
+              <div class="mcond_dopdlid">
+                <div class="d1">水湾1979住宅</div>
+                <div class="d2">人脸识别</div>
+                <div class="d3">12-05 15:57:00</div>
+              </div>
+              <!--./li-->
+              <div class="mcond_dopdlid">
+                <div class="d1">水湾1979住宅</div>
+                <div class="d2">人脸识别</div>
+                <div class="d3">12-05 15:57:00</div>
+              </div>
+              <!--./li-->
+              <div class="mcond_dopdlid">
+                <div class="d1">水湾1979住宅</div>
+                <div class="d2">人脸识别</div>
+                <div class="d3">12-05 15:57:00</div>
+              </div>
+              <!--./li-->
+              <div class="mcond_dopdlid">
+                <div class="d1">水湾1979住宅</div>
+                <div class="d2">人脸识别</div>
+                <div class="d3">12-05 15:57:00</div>
+              </div>
+              <!--./li--> 
+            </div>
+            <!--./mcond_dopduld--> 
+          </div>
+        </div>
+        <!--./mcond_dopd-->
+        <div class="mcdpd_r">
+          <div class="mcdd mcond_card">
+            <p class="cortr"></p>
+            <p class="corbl"></p>
+            <div class="mcontitd">
+              <div class="titd poic6">车场实时动态</div>
+            </div>
+            <!--./mcontitd-->
+            
+            <div class="mcond_cardtd">
+              <div class="mcond_cardtopuld">
+                <div class="mcond_cardtopd">
+                  <div class="picd"><img src="bi/images/p1.jpg" width="130" height="80"></div>
+                  <div class="cond">
+                    <div class="t">
+                      <div class="plated">粤B12345</div>
+                      <div class="dated">12-05 15:57:00</div>
+                    </div>
+                    <div class="pnamed">水湾1979商业停车场</div>
+                  </div>
+                </div>
+                <!--./li--> 
+              </div>
+            </div>
+            <!--./mcond_cardtd-->
+            
+            <div class="mcond_cardlitop">
+              <div class="d1">车牌号</div>
+              <div class="d2">停车场名称</div>
+              <div class="d3">进场时间</div>
+            </div>
+            <!--./mcond_cardlitop-->
+            <div class="mcond_carduldiv">
+              <div class="mcond_carduld">
+                <div class="mcond_cardlid">
+                  <div class="d1">粤BF23456</div>
+                  <div class="d2">水湾1979商业停车场</div>
+                  <div class="d3">12-05 15:57:00</div>
+                </div>
+                <!--./li-->
+                <div class="mcond_cardlid">
+                  <div class="d1">粤B1234警</div>
+                  <div class="d2">诺水河停车场田旁停车场</div>
+                  <div class="d3">12-05 15:57:00</div>
+                </div>
+                <!--./li-->
+                <div class="mcond_cardlid">
+                  <div class="d1">粤B12345</div>
+                  <div class="d2">诺水河停车场</div>
+                  <div class="d3">12-05 15:57:00</div>
+                </div>
+                <!--./li-->
+                <div class="mcond_cardlid">
+                  <div class="d1">粤B12345B12345B12345</div>
+                  <div class="d2">水湾1979</div>
+                  <div class="d3">12-05 15:57:00</div>
+                </div>
+                <!--./li-->
+                <div class="mcond_cardlid">
+                  <div class="d1">粤B1234警</div>
+                  <div class="d2">诺水河停车场田旁停车场</div>
+                  <div class="d3">12-05 15:57:00</div>
+                </div>
+                <!--./li-->
+                <div class="mcond_cardlid">
+                  <div class="d1">粤B12345</div>
+                  <div class="d2">诺水河停车场</div>
+                  <div class="d3">12-05 15:57:00</div>
+                </div>
+                <!--./li-->
+                <div class="mcond_cardlid">
+                  <div class="d1">粤B12345B12345B12345</div>
+                  <div class="d2">水湾1979</div>
+                  <div class="d3">12-05 15:57:00</div>
+                </div>
+                <!--./li--> 
+              </div>
+              <!--./mcond_carduld--> 
+            </div>
+            <!--./mcond_carduldiv--> 
+          </div>
+        </div>
+        <!--./mcond_card--> 
+      </div>
+      <!--./mcdpd--> 
+      
+    </div>
+  </div>
+  <!--./mainmicond--> 
+  
+  <!--mainlrcond-->
+  <div class="mainlrcond">
+    <div class="mcond mcond_poms">
+      <p class="cortr"></p>
+      <p class="corbl"></p>
+      <div class="mcontitd">
+        <div class="titd poic7">物业费收入</div>
+        <div class="linkd">
+          <div class="ldd">
+            <p class="on"><a href="javascript:;" onClick="switchChargePOM(1);">本月</a></p>
+            <p><a href="javascript:;" onClick="switchChargePOM(2);">上月</a></p>
+          </div>
+          <div class="mored" style="display:none;"><a href="javascript:;" title="更多详情">···</a></div>
+        </div>
+      </div>
+      <!--./mcontitd-->
+      <div class="mcond_pomspd">
+        <div class="mcond_pomsuld">
+          <div class="mcond_pomslid">
+            <div class="cond">
+              <h4>本月总应收</h4>
+              <p></p>
+              <h3>20000</h3>
+            </div>
+          </div>
+          <div class="mcond_pomslid">
+            <div class="cond">
+              <h4>总实收</h4>
+              <p></p>
+              <h3>18000</h3>
+            </div>
+          </div>
+        </div>
+        <!--./mcond_pomsld-->
+        
+        <div class="mcond_pomsrd">
+          <div class="mcond_pomsrepd" id="poms_pieID">
+            <p class="mainloadd">loading...</p>
+          </div>
+        </div>
+        <!-- ./mcond_pomsrd --> 
+      </div>
+      <!--./mcond_pomsuld--> 
+    </div>
+    <div class="mainb"></div>
+    <!--./mcond_poms-->
+    
+    <div class="mcond mcond_pomy">
+      <p class="cortr"></p>
+      <p class="corbl"></p>
+      <div class="mcontitd">
+        <div class="titd poic8">近半年物业费收入</div>
+      </div>
+      <!--./mcontitd-->
+      <div class="mcond_pomyrepd" id="charge_barID">
+        <p class="mainloadd">loading...</p>
+      </div>
+      <!--./mcond_pomyrepd--> 
+    </div>
+    <div class="mainb"></div>
+    <!--./mcond_pomy-->
+    
+    <div class="mcond mcond_pkm">
+      <p class="cortr"></p>
+      <p class="corbl"></p>
+      <div class="mcontitd">
+        <div class="titd poic9">实时收入</div>
+        <div class="linkd">
+          <div class="ldd">
+            <p class="on"><a href="javascript:;" onClick="switchChargePKM(1);">今日</a></p>
+            <p><a href="javascript:;" onClick="switchChargePKM(2);">本月</a></p>
+          </div>
+          <div class="mored" style="display:none;"><a href="javascript:;" title="更多详情">···</a></div>
+        </div>
+      </div>
+      <!--./mcontitd-->
+      <div class="mcond_pkmmdbgd"></div>
+      <div class="mcond_pkmmdbg"></div>
+      <div class="mcond_pkmmd">
+        <div class="moneyd odometer" id="odometer_charge">0</div>
+        <div class="unitd">元</div>
+      </div>
+      <!--./mcond_pkmmd-->
+      <div class="mcond_pkmlrd">
+        <p class="numd tb1">856</p>
+        <p class="titd">收费次数</p>
+        <p class="numd tb2">98325</p>
+        <p class="titd">临停收入</p>
+      </div>
+      <!--./mcond_pkmlrd-->
+      <div class="mcond_pkmlrd r">
+        <p class="numd tb1">32</p>
+        <p class="titd">收费次数</p>
+        <p class="numd tb2">8596</p>
+        <p class="titd">延期收入</p>
+      </div>
+      <!--./mcond_pkmlrd--> 
+    </div>
+    <div class="mainb"></div>
+    <!--./mcond_pkm-->
+    
+    <div class="mcond mcond_carflow">
+      <p class="cortr"></p>
+      <p class="corbl"></p>
+      <div class="mcontitd">
+        <div class="titd poic10">实时车流量</div>
+        <div class="linkd">
+          <div class="ldd">
+            <p class="on"><a href="javascript:;" onClick="switchCarFlow(1);">今日</a></p>
+            <p><a href="javascript:;" onClick="switchCarFlow(2);">本月</a></p>
+          </div>
+          <div class="mored" style="display:none"><a href="javascript:;" title="更多详情">···</a></div>
+        </div>
+      </div>
+      <!--./mcontitd-->
+      <div class="mcond_carflowuld">
+        <div class="mcond_carflowlid">
+          <div class="picd pic1">
+            <p class="icod"></p>
+          </div>
+          <div class="numd odometer" id="odometer_carflow1">24638</div>
+          <div class="titd">入场车流</div>
+        </div>
+        <!--./li-->
+        <div class="mcond_carflowlid">
+          <div class="picd pic2">
+            <p class="icod"></p>
+          </div>
+          <div class="numd odometer" id="odometer_carflow2">22145</div>
+          <div class="titd">出场车流</div>
+        </div>
+        <!--./li--> 
+      </div>
+      <!--./mcond_carflowuld--> 
+    </div>
+    <div class="mainb2"></div>
+    <!--./mcond_carflow--> 
+    
+  </div>
+  <!--./mainlrcond--> 
+  
+</div>
+<!--./content--> 
+<script src="bi/js/odometer/odometer.min.js"></script> 
+<script src="bi/js/public.js"></script> <!--public-js--> 
+<script src="bi/js/property/mcond_effect.js"></script> <!--mcond_effect--> 
+<script src="bi/js/property/charts_network_state.js"></script> <!--mcond_nws--> 
+
+<script src="bi/js/property/charts_opendoor_pie.js"></script> <!--mcond_odt--> 
+<!--<script src="bi/js/property/charts_opendoor_bar.js"></script> mcond_odn--> 
+<!--change-->
+<script src="bi/js/property/charts_opendoor_bar1.js"></script>
+<script src="bi/js/property/charts_charge_bar1.js"></script>
+
+<script src="bi/js/property/charts_jobw_pie.js"></script> <!--mcond_jobw--> 
+<script src="bi/js/property/charts_poms_pie.js"></script> <!--mcond_poms--> 
+<!--<script src="bi/js/property/charts_charge_bar.js"></script> mcond_pomy--> 
+<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script> 
+<script src="bi/js/echarts/bmap.min.js"></script><!-- bmap --> 
+<!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=Dn0XT1HvAsPFIFA7AbDjP6SX&s=1"></script> 百度地图api -->
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=00MrTdKHmxhiaWIfU2Vh7VdZjec2dlnC"></script> <!--测试-->
+<script src="bi/js/parking/charts_map.js"></script> <!--charts_map--> 
+
+<script type="text/javascript">
+$(window).resize(function(){ onchangeWH();});
+function onchangeWH(){
+	var wh=$(window).height();
+	
+	//top
+	var th=1080-wh;
+	if(th>10){th=10;}else if(th<0){th=0;}
+	$(".topdp, .topd .titbg").height(60-th);
+	$(".maintop").css("padding-top",(60-th));
+	
+	//content
+	var ch=wh-60+th;
+	
+	//mcond to left and right, min height=800:200
+	var mcminh=(ch-18)/4-2;
+	if(mcminh<173){
+		mcminh=173;
+	}
+	$(".mcond").height(mcminh);
+	
+	//mcond_nws
+	var mcond_nws_a=mcminh-32-20-60-111;
+	if(mcond_nws_a<3){ mcond_nws_a=3; }else if(mcond_nws_a>10){ mcond_nws_a=10; }
+	var mcond_nws_b=mcminh-32-20-60;
+	if(mcond_nws_b>101){ mcond_nws_b=101; }
+	$(".mcond_nwslid .chartsd").width(mcond_nws_b);
+	$(".mcond_nwslid .chartsd").height(mcond_nws_b);
+	$(".mcond_nwslid .chartsd").css("margin-top",mcond_nws_a);
+	$(".mcond_nwslid .chartsd").css("margin-bottom",mcond_nws_a);
+	
+	//mcond_odt
+	var mcond_odt_a=mcminh-26-8;
+	$(".mcond_odtrepd").height(mcond_odt_a);
+	
+	//mcond_odn
+	var mcond_odn_a=mcminh-32-15;
+	$(".mcond_odnrepd").height(mcond_odn_a);
+	
+	//mcond_jobw
+	var mcond_jobw_a=mcminh-32-5;
+	var mcond_jobw_b=(mcond_jobw_a-45*3)/6;
+	if(mcond_jobw_b<0){ mcond_jobw_b=0; }
+	$(".mcond_jobwrepd").height(mcond_jobw_a);
+	$(".mcond_jobwld li").css("padding-top",mcond_jobw_b);
+	$(".mcond_jobwld li").css("padding-bottom",mcond_jobw_b);
+	
+	//mcond_poms
+	var mcond_poms_a=mcminh-32;
+	$('.mcond_pomspd, .mcond_pomsrd, .mcond_pomsrepd').height(mcond_poms_a);
+	
+	var mcond_poms_b=(mcond_poms_a-62*2)/3;
+	$(".mcond_pomslid").css("padding-top",mcond_poms_b);
+	
+	
+	/*
+	var poic7_dm =$('.poic7font').height();
+	var poic7_mt = (poic7_dm-120)/3;
+	$('.poic7font .poic7mt').css("margin-top",poic7_mt.toFixed(1)+'px');
+	*/
+	
+	//mcond_pomy
+	var mcond_pomy_a=mcminh-32-15;
+	$(".mcond_pomyrepd").height(mcond_pomy_a);
+	
+	//mcond_carflow
+	var mcond_carflow_a=(mcminh-32-166)/2-5;
+	if(mcond_carflow_a<0){mcond_carflow_a=0;}
+	var mcond_carflow_b=(mcminh-32-146)/2;
+	if(mcond_carflow_b<0){mcond_carflow_b=0;}else if(mcond_carflow_b>12){ mcond_carflow_b=12; }
+	$(".mcond_carflowuld").css("margin-top",mcond_carflow_a);
+	$(".mcond_carflowlid .numd").css("margin-top",mcond_carflow_b);
+	$(".mcond_carflowlid .numd").css("margin-bottom",mcond_carflow_b);
+	
+	//main-map
+	var mapminh=ch;
+	if(mapminh<718){ mapminh=718; }
+	var map_a=mapminh-297-12;
+	$(".mainmapd").height(map_a);
+	$(".bmapd").height(map_a+50);
+	
+	$("#h").html($(window).width()+"-"+wh+">>>");
+	$("#ch").html(ch);
+	$("#v").html(mcond_poms_b);
+	
+	chartsReRender();
+}
+onchangeWH();
+
+//number
+window.odometerOptions = {
+  auto: true, // Don't automatically initialize everything with class 'odometer'
+  selector: '.odometer', // Change the selector used to automatically find things to be animated
+  format: 'd', // Change how digit groups are formatted, and how many digits are shown after the decimal point
+  duration: 2000, // Change how long the javascript expects the CSS animation to take
+  theme: 'default', // Specify the theme (if you have more than one theme css file on the page)
+};
+
+//按顺序测试效果--test
+setInterval(effectMcond1,5000); //测试...
+effectMcond();
+function effectMcond(){
+	effectMcond1(444,555,666,777,888,999)
+	effectMcond_carflow(24638,22145);
+	effectMcond_parklot();
+	effectMcond_card();
+	effectMcond_pkm(85239);
+	effectMapNum(85610);
+	
+	initChartsRender();
+}
+function initChartsRender(){
+	showCharts_Network_state();
+	showCharts_OpenDoor_Pie();
+	showCharts_OpenDoor_bar();
+	showCharts_Jobw_Pie();
+	showCharts_Charge_bar();
+	showCharts_Poms_pie();
+	showCharts_Map();
+}
+//按顺序测试效果--test
+
+//统计报表重新渲染
+function chartsReRender(){
+	showCharts_Network_state_re();
+	showCharts_OpenDoor_Pie_re();
+	showCharts_OpenDoor_bar_re();
+	showCharts_Jobw_Pie_re();
+	showCharts_Charge_bar_re();
+	showCharts_Poms_pie_re();
+	showCharts_Map_re();
+}
+//效果
+
+//开门分析统计(今日/本月)
+function switchOpenDoor(type){
+	$(".mcond_odt .mcontitd .linkd .ldd p").removeClass("on");
+	if(type==2){
+		$(".mcond_odt .mcontitd .linkd .ldd p").eq(1).addClass("on");
+		var opendoorPieDataArray=[{"name":"人脸开门","value":2000},{"name":"手机开门","value":100},{"name":"刷卡开门","value":100},{"name":"密码开门","value":1800},{"name":"呼叫开门","value":100},{"name":"按钮开门","value":100},{"name":"其他","value":1600}];
+		//门禁人流分析
+		var dateArray = ["昆明.同德", "金地格林小", "威远占道停", "富联华商贸", "茶光村"];
+		var moneyDataArray=[7777, 8888, 9999, 9865, 6857];
+	}else{
+		$(".mcond_odt .mcontitd .linkd .ldd p").eq(0).addClass("on");	
+		var opendoorPieDataArray=[{"name":"人脸开门","value":200},{"name":"手机开门","value":100},{"name":"刷卡开门","value":100},{"name":"密码开门","value":100},{"name":"呼叫开门","value":100},{"name":"按钮开门","value":100},{"name":"其他","value":100}];
+			//门禁人流分析
+		var dateArray = ["昆明.同德", "金地格林小", "威远占道停", "富联华商贸", "茶光村"];
+		var moneyDataArray=[2105, 1199, 1927, 1503, 1073];
+	}
+	
+	//重新加载数据
+	showCharts_OpenDoor_Pie(opendoorPieDataArray);
+	showCharts_OpenDoor_bar_re();
+	// 门禁人流分析
+	showCharts_OpenDoor_bar(dateArray,moneyDataArray)
+}
+
+//工单服务分析(今日/本月)
+function switchJobw(type){
+	$(".mcond_jobw .mcontitd .linkd .ldd p").removeClass("on");
+	if(type==2){
+		$(".mcond_jobw .mcontitd .linkd .ldd p").eq(1).addClass("on");
+	}else{
+		$(".mcond_jobw .mcontitd .linkd .ldd p").eq(0).addClass("on");	
+	}
+	
+	var jobwPieDataArray1=[{"name":"公共报障","value":2000},{"name":"清洁绿化","value":100},{"name":"小区安全","value":100},{"name":"任务下达","value":100}];
+	var jobwPieDataArray2=[{"name":"投诉建议","value":2000},{"name":"室内维修","value":100},{"name":"公共报修","value":100},{"name":"安保服务","value":100},{"name":"清洁绿化","value":100},{"name":"墙体报修","value":100},{"name":"其他","value":100}];
+
+	//重新加载数据
+	showCharts_Jobw_Pie(jobwPieDataArray1,jobwPieDataArray2);
+}
+
+//物业费收入切换(本月/上月)
+function switchChargePOM(type){
+	$(".mcond_poms .mcontitd .linkd .ldd p").removeClass("on");
+	if(type==2){
+		$(".mcond_poms .mcontitd .linkd .ldd p").eq(1).addClass("on");
+	}else{
+		$(".mcond_poms .mcontitd .linkd .ldd p").eq(0).addClass("on");	
+	}
+	
+	//重新加载数据
+	showCharts_Poms_pie(80);
+}
+
+//实时收入日期切换(今日/本月)
+function switchChargePKM(type){
+	$(".mcond_pkm .mcontitd .linkd .ldd p").removeClass("on");
+	if(type==2){
+		$(".mcond_pkm .mcontitd .linkd .ldd p").eq(1).addClass("on");
+	}else{
+		$(".mcond_pkm .mcontitd .linkd .ldd p").eq(0).addClass("on");	
+	}
+	
+	//重新加载数据
+	effectMcond_pkm(Math.ceil(Math.random()*100000));
+}
+
+//车流日期切换(今日/本月)
+function switchCarFlow(type){
+	$(".mcond_carflow .mcontitd .linkd .ldd p").removeClass("on");
+	if(type==2){
+		$(".mcond_carflow .mcontitd .linkd .ldd p").eq(1).addClass("on");
+	}else{
+		$(".mcond_carflow .mcontitd .linkd .ldd p").eq(0).addClass("on");	
+	}
+	
+	//重新加载数据
+	effectMcond_carflow();
+}
+
+//map....
+$('.mseld_ppd').mouseover(function(){ $(this).addClass("mouse"); });
+$('.mseld_ppd').mouseout(function(){ hide_mseld_ppd(); });
+function hide_mseld_ppd(){
+	$('.mseld_ppd').removeClass("mouse");	
+}
+var mapDataType=1;//1:项目,2:收入,3:车流,4:项目+车库,5:设备
+//地图切换
+function switchMap(type){
+	var mseld_p="项目";
+	$(".mseld").removeClass("on");
+	if(type==2){//收入
+		$(".mseld.m").addClass("on");
+		$(".mainmapd .mnumd h4").html("当月总收入");
+	}else if(type==3){//车辆
+		$(".mseld.c").addClass("on");
+		$(".mainmapd .mnumd h4").html("当月总车流");
+	}else if(type==4){//车库
+		$(".mseld.p").addClass("on");
+		$(".mainmapd .mnumd h4").html("项目/车库总数");
+		
+		mseld_p="车库";
+		hide_mseld_ppd();
+		$(".mseld_puld p").show();
+		$(".mseld_puld .pg").hide();
+		$(".mseld.p").attr("onClick","switchMap(4);");
+	}else if(type==5){//设备
+		$(".mseld.p").addClass("on");
+		$(".mainmapd .mnumd h4").html("设备总数");
+		
+		mseld_p="设备";
+		hide_mseld_ppd();
+		$(".mseld_puld p").show();
+		$(".mseld_puld .pd").hide();
+		$(".mseld.p").attr("onClick","switchMap(5);");
+	}else{
+		$(".mseld.p").addClass("on");
+		$(".mainmapd .mnumd h4").html("项目总数");
+		
+		hide_mseld_ppd();
+		$(".mseld_puld p").show();
+		$(".mseld_puld .pp").hide();
+		$(".mseld.p").attr("onClick","switchMap(1);");
+	}
+	if(type!=null){mapDataType=type;}
+	$(".mseld.p i").html(mseld_p);
+	
+	//重新加载数据
+	effectMapNum(85239);
+	showCharts_Map();
+}
+
+</script> 
+<script src="bi/js/jPlayer/dist/jplayer/jquery.jplayer.min.js"></script> 
+<script src="bi/js/public_jplayer.js"></script>
 </body>
 </html>

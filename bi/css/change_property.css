@@ -1,0 +1,28 @@
+/*----change----*/
+/*change_public__6*/
+body.bgparking{ background:url(../images/bg/bg.jpg) center no-repeat; background-size:auto; background-color:#01015D; }/*01015D*/
+/*change_public__48*/
+.topdp{ position:fixed; top:0; left:0; z-index:999999; width:100%; min-width:1000px; height:60px; background-color:#070433; color:#FFF; box-shadow:0 3px 6px rgba(0,0,0,0.16); }
+/* change_public__98*/
+.mcond, .mcdd{ background:rgba(9, 5, 63, 0.5);border:1px solid #062668; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#10FFFFFF,endColorstr=#10FFFFFF); }
+/*change_public__99&100*/
+.mcond .cortr, .mcdd .cortr,.mcond .corbl, .mcdd .corbl{border-width: 2px;width: 13px;height: 13px;border-color: #004EEF;}
+/*change_property_copy__153*/
+.mainmtitd{background: rgba(9,5,63,.6) !important;}
+/*change_property_copy__177*/
+.mainmtitd .pnumlid .br1{border-color: #1a3593 !important;}
+/* chang_ property_copy__190*/
+.mcond_dopdlid,.mcond_cardlitop{border-color:#16296b !important;}
+/* chang_ property_copy__211*/
+.mcond_cardlid, .mcond_cardlitop{border-color:#16296b !important;}
+/*color
+ *chang_ property_copy__27_&_28_&_46_&_171_&_198_&_229_&_231&_120*/
+.mcond_nwslid .titd,
+.mcond_nwsuld,
+.mcond_jobwld li p,
+.mainmtitd .pnumlid .titd,
+.mcond_dopdlid.f,
+.mcond_cardlitop,
+.mcond_cardlitop .d1,
+.mcond_carflowuld .titd{color: #3978f0 !important;}
+/*----./change----*/

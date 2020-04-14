@@ -1,0 +1,226 @@
+/*!
+ * BI主界面常规样式
+ * author:Qiuyongda
+ * date:19/04/12 v1.0
+ */
+body.bgparking{ background:url(../images/bg_po.) center no-repeat; background-size:auto; background-color:#262E41; }
+.topdp{ background-color:#070433; }
+
+.mcond, .mcdd{ background:rgba(9, 5, 63, 0.5);border:1px solid #062668; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#5009053F,endColorstr=#5009053F); }
+.mcond .cortr, .mcdd .cortr,.mcond .corbl, .mcdd .corbl{border-color: #004EEF;}
+
+
+.mcond_nws{ clear:both; }
+.mcond_nwsuld{ clear:both; padding-top:5px; overflow:hidden; zoom:1; color:#BCAAFA; }
+.mcond_nwslid{ float:left; width:25%; text-align:center; }
+.mcond_nwslid .titd{ color:#BCAAFA; }
+.mcond_nwslid .chartsd{ clear:both; width:101px; height:101px; margin:10px auto; }
+.mcond_nwslid .numd{ font-size:15px; color:#fff; }
+.mcond_nwslid .tagd{ font-size:12px; }
+
+.mcond_odt{ clear:both; }
+.mcond_odtrepd{ clear:both; padding:0 10px 8px 10px; }
+
+.mcond_odn{ clear:both; }
+.mcond_odnrepd{ clear:both; padding:5px 0 10px 0; }
+
+.mcond_jobw{ clear:both; }
+.mcond_jobwpd{ clear:both; }
+.mcond_jobwld{ float:left; width:30%; text-align:center; }
+.mcond_jobwld li{ clear:both; padding:5px 0; }
+.mcond_jobwld li h3{ font-size:20px; padding-bottom:5px; }
+.mcond_jobwld li p{ font-size:12px; color:#BCAAFA; }
+.mcond_jobwrepd1{ clear:both; padding:5px 10px 10px 10px; }
+.mcond_jobwrepd{ float:left; width:70%; height:100px; position:relative; }
+
+.mcond_poms{ clear:both; }
+.mcond_pomspd{ clear:both; }
+.mcond_pomsuld{ float:left; width:50%; }
+.mcond_pomslid{ clear:both; padding-top:29px; color:#fff; }
+.mcond_pomslid .cond{ clear:both; margin:0 auto; width:130px; padding:5px 0; text-align:center; background:linear-gradient(87deg,rgba(249,27,225,1) 0%,rgba(0,242,253,1) 100%); }
+.mcond_pomslid .cond h4{ font-size:12px; padding-bottom:3px; }
+.mcond_pomslid .cond h4 em{ font-style:normal; }
+.mcond_pomslid .cond p{ clear:both; width:60px; height:1px; background-color:#fff; margin:0 auto; }
+.mcond_pomslid .cond h3{ font-size:24px; line-height:24px; padding-top:4px; }
+
+.mcond_pomsrd{ float:left; width:50%; position:relative; }
+.mcond_pomsrepd{ clear:both; padding:0 0 10px 0; }
+
+.mcond_pomy{ clear:both; }
+.mcond_pomyrepd{ clear:both; padding:5px 0 10px 0; }
+
+.mcond_pkm{ clear:both; position:relative; }
+.mcond_pkmmdbgd{ position:absolute; z-index:0; top:50%; left:50%; margin:-171px 0 0 -166px; width:333px; height:342px; background:url(../images/bg3.png) center no-repeat; background-size:auto; }
+@keyframes fadeIn1{
+0%{ -webkit-transform:rotate(0deg); }
+100%{ -webkit-transform:rotate(360deg);  }
+}
+@-webkit-keyframes fadeIn1{
+0%{ -webkit-transform:rotate(0deg); }
+100%{ -webkit-transform:rotate(360deg);  }
+}
+.fadeInc1{
+animation-name: fadeIn1;
+animation-duration: 6s;
+animation-iteration-count: infinite;
+animation-delay: 0s;
+animation-timing-function:linear;
+-webkit-animation-name: fadeIn1;
+-webkit-animation-duration: 6s;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-delay: 0s;
+-webkit-animation-timing-function:linear;
+}
+.mcond_pkmmdbg{ position:absolute; z-index:0; top:50%; left:50%; margin:-112px 0 0 -112px; width:224px; height:224px; background:url(../images/bg4.png) center no-repeat; background-size:98% auto; }
+
+.mcond_pkmmd .odometer.odometer-auto-theme, .mcond_pkmmd .odometer.odometer-theme-default{ line-height:normal; font-family:"LatoLight",Helvetica,Arial,"Microsoft Yahei",sans-serif; }
+.mcond_pkmmd{ position:absolute; z-index:88; top:50%; left:50%; margin:-26px 0 0 -112px; width:224px; height:72px; text-align:center; }
+.mcond_pkmmd .moneyd{ clear:both; height:44px; line-height:44px; font-size:42px; overflow:hidden; }
+.mcond_pkmmd .unitd{ clear:both; height:20px; padding-top:10px; }
+
+.mcond_pkmlrd{ position:absolute; z-index:88; left:2%; top:50%; margin-top:-50px; width:104px; line-height:26px; text-align:center; }
+.mcond_pkmlrd.r{ left:auto; right:2%; }
+.mcond_pkmlrd .numd{ font-size:22px; }
+.mcond_pkmlrd .numd.tb1{ color:#00FEF3; }
+.mcond_pkmlrd .numd.tb2{ color:#C9FF36; padding-top:16px; }
+.mcond_pkmlrd .titd{ font-size:12px; }
+.mcond_pkmlrd .titd i{ font-style:normal; }
+
+.mcond_carflow .odometer.odometer-auto-theme, .mcond_carflow .odometer.odometer-theme-default{ line-height:normal;font-family:"CenturyGothic",Helvetica,Arial,"Microsoft Yahei"; }
+.mcond_carflow{ clear:both; }
+.mcond_carflowuld{ clear:both; overflow:hidden; zoom:1; margin-top:20.5px; padding:0 10%; }
+.mcond_carflowlid{ float:left; width:50%; text-align:center; line-height:20px; }
+.mcond_carflowlid .picd{ clear:both; width:101px; height:100px; margin:0 auto; position:relative; overflow:hidden; }
+.mcond_carflowlid .picd .icod1{ transition:all 0.4s;-webkit-transition:all 0.4s;-moz-transition:all 0.4s; }
+.mcond_carflowlid .picd.pic1{ background:url(../images/ico4_1.png) center no-repeat; }
+.mcond_carflowlid .picd.pic1 .icod{ position:absolute; left:13px; top:50%; margin-top:-26px; width:22px; height:52px; background:url(../images/ico4_1_o.png) center no-repeat; }
+.mcond_carflowlid .picd.pic2{ background:url(../images/ico4_2.png) center no-repeat; }
+.mcond_carflowlid .picd.pic2 .icod{ position:absolute; right:13px; bottom:50%; margin-bottom:-26px; width:22px; height:52px; background:url(../images/ico4_2_o.png) center no-repeat; }
+.mcond_carflowlid .numd{ clear:both; color:#00FEF3; font-size:26px; height:32px; line-height:32px; margin:12px 0 12px 0; overflow:hidden; }
+.mcond_carflowlid .titd{ clear:both; line-height:14px; font-size:13px; }
+
+
+/*map*/
+.mainmapd{ clear:both; height:666px; background-color:#000A45; position:relative; overflow:hidden; }
+.mainmapd .mnumd{ position:absolute; top:20px; left:20px; z-index:888888; display:none; }
+.mainmapd .mnumd h4{ padding-bottom:8px; font-size:16px; color:#BCAAFA; }
+.mainmapd .odometer.odometer-auto-theme, .mainmapd .odometer.odometer-theme-default{ line-height:normal; font-family:"CenturyGothic",Helvetica,Arial,"Microsoft Yahei",sans-serif; }
+.mainmapd .mnumd .numd{ padding:0 10px 5px 10px; min-width:50px; height:32px; line-height:32px; font-size:32px; text-align:center; color:#FFF; border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px; overflow:hidden; transition:all 0.4s;-webkit-transition:all 0.4s;-moz-transition:all 0.4s;
+background:-webkit-linear-gradient(#08EBD7, #EE04BF);
+background:-o-linear-gradient(#08EBD7, #EE04BF);
+background:-moz-linear-gradient(#08EBD7, #EE04BF);
+background:linear-gradient(#08EBD7, #EE04BF);
+}
+
+.mseld{ position:absolute; z-index:888888; width:50px; height:50px; cursor:pointer; display:none; }
+.mseld.p{ top:0; right:0;  }/*top:15px; right:15px;*/
+.mseld.m{ left:15px; bottom:15px; }
+.mseld.c{ bottom:15px; right:15px; }
+@keyframes fadeIn2{
+0%{ -webkit-transform:rotate(0deg); }
+100%{ -webkit-transform:rotate(360deg);  }
+}
+@-webkit-keyframes fadeIn2{
+0%{ -webkit-transform:rotate(0deg); }
+100%{ -webkit-transform:rotate(360deg);  }
+}
+.mseld em{ position:absolute; top:0; left:0; width:50px; height:50px; background:url(../images/ico5.png) center no-repeat; background-size:auto;
+animation-name: fadeIn2;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+animation-delay: 0s;
+animation-timing-function:linear;
+-webkit-animation-name: fadeIn2;
+-webkit-animation-duration: 2s;
+-webkit-animation-iteration-count: infinite;
+-webkit-animation-delay: 0s;
+-webkit-animation-timing-function:linear;
+}
+.mseld i{ margin:6px; width:38px; height:38px; line-height:38px; font-size:12px; font-style:normal; background:url(../images/ico6.png) center no-repeat; background-size:auto; display:block; text-align:center; }
+.mseld.on i{ background:url(../images/ico6_o.png) center no-repeat; }
+
+.mseld_ppd{ position:absolute; z-index:888888; width:50px; height:50px; top:15px; right:15px; }
+.mseld_pd{ position:relative; }
+.mseld_puld{ position:absolute; z-index:888888; top:50px; right:0; width:50px; height:0px; overflow:hidden; transition:all 0.2s;-webkit-transition:all 0.2s;-moz-transition:all 0.2s; }
+.mseld_puld p{ clear:both; margin:2px auto 0 auto; width:38px; height:38px; line-height:38px; font-size:12px; font-style:normal; background:url(../images/ico6.png) center no-repeat; background-size:auto; display:block; text-align:center; cursor:pointer; }
+.mseld_puld p.pp{ display:none; }
+.mseld_ppd.mouse .mseld_puld{ height:80px; }
+
+.bmapd{ clear:both; width:100%; overflow:hidden; text-align:center; }
+
+/*map top*/
+.mainmtitd .odometer.odometer-auto-theme, .mainmtitd .odometer.odometer-theme-default{ line-height:normal; font-family:"LatoLight",Helvetica,Arial,"Microsoft Yahei"; }
+.mainmtitd{ position:absolute; top:0; left:0; width:100%; padding:5px 0 7px 0; background:rgba(9,5,63,0.7); z-index:8888888; display:; }
+.mainmtitd .pnumlid{float:left; width:16.666%; text-align:center; position:relative; }
+.mainmtitd .pnumlid .br1{ position:absolute; right:0; top:50%; margin-top:-30px; height:60px; border-right:1px #4A4282 solid; text-align:center; }
+.mainmtitd .pnumlid.nbr .br1{ border-right:0; }
+.mainmtitd .pnumlid .numd{ height:44px; line-height:44px; font-size:44px; overflow:hidden; }
+.mainmtitd .pnumlid .titd{ color:#BCAAFA; font-size:14px; padding-top:5px; }
+.mainmtitd .pnumlid .titd i{ padding-left:20px; height:24px; line-height:24px; font-style:normal; display:inline-block; }
+.mainmtitd .pnumlid .titd i em{ font-size:12px; font-style:normal; }
+
+.mainmtitd .pnumlid.n1 .numd{ color:#17fff1; }
+.mainmtitd .pnumlid.n2 .numd{ color:#ff7800; }
+.mainmtitd .pnumlid.n3 .numd{ color:#ffff10; }
+.mainmtitd .pnumlid.n4 .numd{ color:#ff1e07; }
+.mainmtitd .pnumlid.n5 .numd{ color:#1cff57; }
+.mainmtitd .pnumlid.n6 .numd{ color:#ff20fc; }
+.mainmtitd .pnumlid.n1 .titd i{ background:url(../images/poico2_1.png) center left no-repeat; background-size:16px auto; }
+.mainmtitd .pnumlid.n2 .titd i{ background:url(../images/poico2_2.png) center left no-repeat; background-size:16px auto;}
+.mainmtitd .pnumlid.n3 .titd i{ background:url(../images/poico2_3.png) center left no-repeat; background-size:16px auto; }
+.mainmtitd .pnumlid.n4 .titd i{ background:url(../images/poico2_4.png) center left no-repeat; background-size:16px auto; }
+.mainmtitd .pnumlid.n5 .titd i{ background:url(../images/poico2_5.png) center left no-repeat; background-size:16px auto; }
+.mainmtitd .pnumlid.n6 .titd i{ background:url(../images/poico2_6.png) center left no-repeat; background-size:16px auto; }
+
+
+.mcdpd{ clear:both; padding-top:6px; }
+.mcdpd_l{ float:left; width:50%; }
+.mcdpd_l .mcdd{ margin-right:3px; }
+.mcdpd_r{ float:right; width:50%; }
+.mcdpd_r .mcdd{ margin-left:3px; }
+
+.mcdd{ height:295px;  }/*340px;*/
+.mcond_dopd{ clear:both; }
+
+.mcond_dopduldiv, .mcond_dopdlitop{ clear:both; margin:0 3.2%; overflow:hidden; }
+.mcond_dopduldiv{ height:225px; overflow:hidden; }
+.mcond_dopdlitop{ border-top:0; font-size:12px; color:#BCAAFA; padding:6px 0; }
+.mcond_dopduld{ margin-top:0; }
+.mcond_dopdlid{ clear:both; position:relative; padding:12px 0; height:20px; line-height:20px; border-top:1px #444 solid; margin: 0 3.2%;}
+.mcond_dopdlitop .d1, .mcond_dopdlid .d1{ float:left; width:40%; }
+.mcond_dopdlitop .d2, .mcond_dopdlid .d2{ float:left; width:30%; text-align:center; font-size:12px; }
+.mcond_dopdlitop .d3, .mcond_dopdlid .d3{ float:left; width:30%; text-align:right; font-size:12px; }
+
+.mcond_card{ clear:both; }
+.mcond_cardtd{ clear:both; height:90px; overflow:hidden; margin:0 3.2%; position:relative; }
+.mcond_cardtopuld{ clear:both; margin-top:0; }
+.mcond_cardtopd{ clear:both; position:relative; height:80px; padding:5px 0; overflow:hidden; }
+.mcond_cardtopd .picd{ position:absolute; top:50%; left:0; margin-top:-40px; }
+.mcond_cardtopd .picd img{ width:130px; height:80px; }
+.mcond_cardtopd .cond{ margin-left:130px; padding-left:4%; }
+.mcond_cardtopd .cond .t{ clear:both; padding:5px 10px 15px 0; overflow:hidden; zoom:1; }
+.mcond_cardtopd .cond .plated{ float:left; color:#FF00CC; font-size:16px; }
+.mcond_cardtopd .cond .dated{ float:right; }
+.mcond_cardtopd .cond .pnamed{ clear:both; color:#FFBB03;}
+
+.mcond_carduldiv, .mcond_cardlitop{ clear:both; margin:0 3.2%; overflow:hidden; }
+.mcond_carduldiv{ height:135px; overflow:hidden; }
+.mcond_carduld{ margin-top:0; }
+.mcond_cardlid, .mcond_cardlitop{ clear:both; position:relative; height:44px; line-height:44px; border-top:1px #444 solid; }
+.mcond_cardlid .d1, .mcond_cardlid .d3, .mcond_cardlitop .d1, .mcond_cardlitop .d3{ position:absolute; top:50%; margin-top:-10px; height:20px; line-height:20px; overflow:hidden; }
+.mcond_cardlid .d1, .mcond_cardlitop .d1{ left:0; width:80px; }
+.mcond_cardlid .d2, .mcond_cardlitop .d2{ margin:0 85px 0 80px; overflow:hidden; height:44px; text-align:center; }
+.mcond_cardlid .d3, .mcond_cardlitop .d3{ right:0; text-align:right; font-size:12px; }
+
+.mcond_cardlitop{ border-top:0; font-size:12px; color:#BCAAFA; height:32px; line-height:32px; }
+.mcond_cardlitop .d1{ color:#BCAAFA; }
+
+
+.mcond_nwslid .titd,
+.mcond_nwsuld,
+.mcond_jobwld li p,
+.mainmtitd .pnumlid .titd,
+.mcond_dopdlid.f,
+.mcond_cardlitop,
+.mcond_cardlitop .d1,
+.mcond_carflowuld .titd{color: #3978f0 !important;}
